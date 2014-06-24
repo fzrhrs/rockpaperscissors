@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors Lizard Spock</title>
+  <link href='style.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h1>Rock Paper Scissors Lizard Spock</h1><br/>
+  <img src='images/rock.png' data-pick='rock'>
+  <img src='images/paper.png' data-pick='paper'>
+  <img src='images/scissors.png' data-pick='scissors'>
+  <img src='images/lizard.png' data-pick='lizard'> 
+  <img src='images/spock.png' data-pick='spock'>
+  <ul id='results'></ul>
+  <script type='text/javascript' src='javascript/lib/RockPaperScissors.js'></script>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+  <script> 
+ 	$(document).ready(function(){
+ 		var player1 = new Player(prompt('Please enter your name', 'Player 1')),
+ 			computer = new Player('Computer'),
+	      	game = new Game(player1, computer),
+	      	choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+
+	function randomize(){
+		return Math.floor(Math.random() * 5)
+	}
+     
+	  $('img').on('click', function(){
+	  player1.picks($(this).data('pick'));
+	  computer.picks(choices[randomize()]);
+    
+	  $('<li>' + game.winnerName() + " " + game.announcement() + '</li>').prependTo('#results').slideDown();
+    $('li:gt(4)').fadeOut(function(){
+      $(this).remove();
+    });
+	});
+	});
+
+  </script>
+</body>
+</html>
+
+
+
+
+

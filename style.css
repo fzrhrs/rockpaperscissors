@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+}	
+img {
+  opacity: 0.5;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+img:hover {
+  opacity: 1.0;
+  cursor: pointer;
+}
+#results {
+  list-style: none;
+
+}
+#results li {
+  background-color: salmon;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 8px;
+  padding: 5px;
+  width: 80%;
+  margin-bottom: 10px;
+  display: none;
+}
